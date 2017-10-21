@@ -11,7 +11,6 @@ function youLose() {
 };
 
 
-
 function youlose2(){
 	stop=true;
 	 var loser = document.getElementsByClassName("boundary");
@@ -20,21 +19,29 @@ function youlose2(){
 		 for(x = 0; x < loser.length; x++) {
 		  loser[x].classList.add("youlose");
 	 	}
-	 	//document.getElementById("status").innerHTML = "YOU LOSE";
+	 	if (boundary1.hasClass('youlose') ){
+
+   			boundary1.removeClass('youlose');
+	 	}
 };
 
+
 function doEverything(){
+
+	start=document.getElementById("start").addEventListener("click",restart);
 
 	 var allbound = document.querySelectorAll(".boundary");
 	 var i;
 
 	 for(i = 0; i < allbound.length; i++ ) {
 
-	  	allbound[i].addEventListener("mouseover", youlose2);
-	  	
+	  	allbound[i].addEventListener("mouseover", youlose2);	
 	 }
 	 end=document.getElementById("end").addEventListener("mouseover", youWin);
+
+  
 };
+
 
 function youWin(){
 	if (stop==true){
@@ -43,6 +50,16 @@ function youWin(){
 
 		window.alert("YOU WIN");
 	}
-
 	
+};
+
+
+function restart(){
+	stop=false;
+	var poop=document.querySelectorAll(".boundary");
+
+	var i;
+  	for (i = 0; i < poop.length; i++) {
+    	poop[i].classList.remove("youlose");
+  }
 };
