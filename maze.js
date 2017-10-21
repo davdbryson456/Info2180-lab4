@@ -13,6 +13,7 @@ function youLose() {
 
 
 function youlose2(){
+	document.getElementById("status").innerHTML = "YOU LOSE"
 	stop=true;
 	 var loser = document.getElementsByClassName("boundary");
 	 var x;
@@ -20,11 +21,11 @@ function youlose2(){
 		 for(x = 0; x < loser.length; x++) {
 		  loser[x].classList.add("youlose");
 	 	}
-	 	//document.getElementById("status").innerHTML = "YOU LOSE";
+
 };
 
 function doEverything(){
-
+	start=document.getElementById("start").addEventListener("click",restart);
 	 var allbound = document.querySelectorAll(".boundary");
 	 var i;
 
@@ -41,8 +42,19 @@ function youWin(){
 
 	}else{
 
-		window.alert("YOU WIN");
+		document.getElementById("status").innerHTML = "YOU WIN";
 	}
 
-	
+};
+
+function restart(){
+	stop=false;
+
+	var poop=document.querySelectorAll(".boundary");
+	document.getElementById("status").innerHTML = "Move your mouse over the S to begin.";
+	var i;
+  	for (i = 0; i < poop.length; i++) {
+    	poop[i].classList.remove("youlose");
+  	}
+
 };
