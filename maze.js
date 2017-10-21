@@ -26,6 +26,7 @@ function youlose2(){
 
 function doEverything(){
 	start=document.getElementById("start").addEventListener("click",restart);
+	document.getElementById("start").addEventListener("mouseover",surf);
 	 var allbound = document.querySelectorAll(".boundary");
 	 var i;
 
@@ -58,3 +59,7 @@ function restart(){
   	}
 
 };
+
+function surf(){
+  	document.getElementById("maze").addEventListener("mouseleave",youlose2);
+}
